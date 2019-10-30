@@ -7,6 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         TimeEstimator timeEstimator = new TimeEstimator();
+//        ===============ArraySorter sample===============
 
         int[] array = new int[N];
         ArraySorter.getRandomArray(array, 100);
@@ -20,5 +21,11 @@ public class Main {
         ArraySorter.getRandomArray(array, 100);
         timeEstimator.estimateSortingTime(ArraySorter::callStandardSortMethod, array, SortType.ASCENDING, "callStandardSortMethod(array, SortType.ASCENDING)");
 //        ArraySorter.printArray(array);
+
+//        ===============FactorialCalculation sample===============
+        int n = 5;
+        timeEstimator.estimateFactorialTime(FactorialCalculation::getLoopFactorial, n, "getLoopFactorial(n)");
+        timeEstimator.estimateFactorialTime(FactorialCalculation::getRecursionFactorial, n, "getRecursionFactorial(n)");
+
     }
 }
