@@ -1,14 +1,16 @@
 package com.netcracker;
 
+import java.util.concurrent.Callable;
+
 public class TimeEstimator {
     public interface PassedFunction {
-        public void doSomething();
+        public void sortArray(int[] array, SortType sortType);
     }
 
-    public String estimateTime(PassedFunction function, String functionName) {
+    public void estimateSortingTime(PassedFunction function, int[] array, SortType sortType, String functionName) {
         long startTime = System.nanoTime();
-        function.doSomething();
+        function.sortArray(array, sortType);
         long estimatedTime = System.nanoTime() - startTime;
-        return "The estimated time of " + functionName + " is " + estimatedTime;
+        System.out.println("The estimated time of " + functionName + " is " + estimatedTime);
     }
 }
