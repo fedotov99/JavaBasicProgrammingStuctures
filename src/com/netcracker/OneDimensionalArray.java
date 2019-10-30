@@ -50,7 +50,7 @@ public class OneDimensionalArray {
         }
     }
 
-    public static int findSmallestElement(int[] array, int startIndex) {
+    public static int findSmallestElement(int[] array, int startIndex) { // designed for selectionSort
         int smallestElement = array[startIndex];
         int indexOfSmallestElement = startIndex;
 
@@ -63,7 +63,7 @@ public class OneDimensionalArray {
         return indexOfSmallestElement;
     }
 
-    public static int findBiggestElement(int[] array, int startIndex) {
+    public static int findBiggestElement(int[] array, int startIndex) { // designed for selectionSort
         int biggestElement = array[startIndex];
         int indexOfBiggestElement = startIndex;
 
@@ -74,6 +74,19 @@ public class OneDimensionalArray {
             }
         }
         return indexOfBiggestElement;
+    }
+
+    public static int getLastMinElementIndex(int[] array) {
+        int minElement = array[0];
+        int indexOfMinElement = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] <= minElement) {
+                minElement = array[i];
+                indexOfMinElement = i;
+            }
+        }
+        return indexOfMinElement;
     }
 
     public static void printArray(int[] array) {
