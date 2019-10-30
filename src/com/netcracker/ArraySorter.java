@@ -9,7 +9,7 @@ public class ArraySorter {
         }
     }
 
-    public static void BubbleSort(int[] array, SortType sortType) {
+    public static void bubbleSort(int[] array, SortType sortType) {
         boolean isSorted = false;
         int lastUnsorted = array.length - 1;
         if (sortType == SortType.ASCENDING) {
@@ -37,7 +37,7 @@ public class ArraySorter {
         }
     }
 
-    public static void SelectionSort(int[] array, SortType sortType) {
+    public static void selectionSort(int[] array, SortType sortType) {
         if (sortType == SortType.ASCENDING) {
             int indexOfSmallestElement;
 
@@ -54,6 +54,10 @@ public class ArraySorter {
                 swapElements(array, front, indexOfBiggestElement);
             }
         }
+    }
+
+    public static void callStandardSortMethod(int[] array, SortType sortType) {
+        Arrays.sort(array);
     }
 
     private static void swapElements(int[] array, int i, int j) {
