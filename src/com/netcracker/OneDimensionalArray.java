@@ -42,6 +42,14 @@ public class OneDimensionalArray {
         return Arrays.stream(array).filter(i -> i % 2 != 0).count();
     }
 
+    public static void replaceOddIndexesWith0(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (i % 2 != 0) {
+                array[i] = 0;
+            }
+        }
+    }
+
     public static void printArray(int[] array) {
         System.out.println();
         Arrays.stream(array).forEach(a-> System.out.print(a + " "));
