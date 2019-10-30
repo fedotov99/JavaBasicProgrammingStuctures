@@ -12,18 +12,20 @@ public class ArraySorter {
     public static void BubbleSort(int[] array, SortType sortType) {
         boolean isSorted = false;
         int lastUnsorted = array.length - 1;
-        while(!isSorted) {
-            isSorted = true;
-            if (sortType == SortType.ASCENDING) {
+        if (sortType == SortType.ASCENDING) {
+            while (!isSorted) {
+                isSorted = true;
                 for (int i = 0; i < lastUnsorted; i++) {
-                        if (array[i] > array[i + 1]) {
-                            swapElements(array, i, i + 1);
-                            isSorted = false;
-                        }
+                    if (array[i] > array[i + 1]) {
+                        swapElements(array, i, i + 1);
+                        isSorted = false;
+                    }
                 }
                 lastUnsorted--;
             }
-            else if (sortType == SortType.DESCENDING) {
+        } else if (sortType == SortType.DESCENDING) {
+            while (!isSorted) {
+                isSorted = true;
                 for (int i = 0; i < lastUnsorted; i++) {
                     if (array[i] < array[i + 1]) {
                         swapElements(array, i, i + 1);
@@ -32,7 +34,25 @@ public class ArraySorter {
                 }
                 lastUnsorted--;
             }
+        }
+    }
 
+    public static void SelectionSort(int[] array, SortType sortType) {
+        if (sortType == SortType.ASCENDING) {
+            int indexOfSmallestElement;
+
+            for (int front = 0; front < array.length; front++) {
+                indexOfSmallestElement = findSmallestElement(array, front);
+                swapElements(array, front, indexOfSmallestElement);
+            }
+        }
+        else if (sortType == SortType.DESCENDING) {
+            int indexOfBiggestElement;
+
+            for (int front = 0; front < array.length; front++) {
+                indexOfBiggestElement = findBiggestElement(array, front);
+                swapElements(array, front, indexOfBiggestElement);
+            }
         }
     }
 
@@ -40,6 +60,32 @@ public class ArraySorter {
         int tmp = array[i];
         array[i] = array[j];
         array[j] = tmp;
+    }
+
+    private static int findSmallestElement(int[] array, int startIndex) {
+        int smallestElement = array[startIndex];
+        int indexOfSmallestElement = startIndex;
+
+        for (int i = startIndex; i < array.length; i++) {
+            if (array[i] < smallestElement) {
+                smallestElement = array[i];
+                indexOfSmallestElement = i;
+            }
+        }
+        return indexOfSmallestElement;
+    }
+
+    private static int findBiggestElement(int[] array, int startIndex) {
+        int biggestElement = array[startIndex];
+        int indexOfBiggestElement = startIndex;
+
+        for (int i = startIndex; i < array.length; i++) {
+            if (array[i] > biggestElement) {
+                biggestElement = array[i];
+                indexOfBiggestElement = i;
+            }
+        }
+        return indexOfBiggestElement;
     }
 
     public static void printArray(int[] array) {
