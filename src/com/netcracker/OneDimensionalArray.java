@@ -50,6 +50,32 @@ public class OneDimensionalArray {
         }
     }
 
+    public static int findSmallestElement(int[] array, int startIndex) {
+        int smallestElement = array[startIndex];
+        int indexOfSmallestElement = startIndex;
+
+        for (int i = startIndex; i < array.length; i++) {
+            if (array[i] < smallestElement) {
+                smallestElement = array[i];
+                indexOfSmallestElement = i;
+            }
+        }
+        return indexOfSmallestElement;
+    }
+
+    public static int findBiggestElement(int[] array, int startIndex) {
+        int biggestElement = array[startIndex];
+        int indexOfBiggestElement = startIndex;
+
+        for (int i = startIndex; i < array.length; i++) {
+            if (array[i] > biggestElement) {
+                biggestElement = array[i];
+                indexOfBiggestElement = i;
+            }
+        }
+        return indexOfBiggestElement;
+    }
+
     public static void printArray(int[] array) {
         System.out.println();
         Arrays.stream(array).forEach(a-> System.out.print(a + " "));

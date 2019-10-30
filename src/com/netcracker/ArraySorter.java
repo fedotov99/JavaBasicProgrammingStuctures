@@ -37,7 +37,7 @@ public class ArraySorter {
             int indexOfSmallestElement;
 
             for (int front = 0; front < array.length; front++) {
-                indexOfSmallestElement = findSmallestElement(array, front);
+                indexOfSmallestElement = OneDimensionalArray.findSmallestElement(array, front);
                 swapElements(array, front, indexOfSmallestElement);
             }
         }
@@ -45,7 +45,7 @@ public class ArraySorter {
             int indexOfBiggestElement;
 
             for (int front = 0; front < array.length; front++) {
-                indexOfBiggestElement = findBiggestElement(array, front);
+                indexOfBiggestElement = OneDimensionalArray.findBiggestElement(array, front);
                 swapElements(array, front, indexOfBiggestElement);
             }
         }
@@ -67,31 +67,5 @@ public class ArraySorter {
         int tmp = array[i];
         array[i] = array[j];
         array[j] = tmp;
-    }
-
-    private static int findSmallestElement(int[] array, int startIndex) {
-        int smallestElement = array[startIndex];
-        int indexOfSmallestElement = startIndex;
-
-        for (int i = startIndex; i < array.length; i++) {
-            if (array[i] < smallestElement) {
-                smallestElement = array[i];
-                indexOfSmallestElement = i;
-            }
-        }
-        return indexOfSmallestElement;
-    }
-
-    private static int findBiggestElement(int[] array, int startIndex) {
-        int biggestElement = array[startIndex];
-        int indexOfBiggestElement = startIndex;
-
-        for (int i = startIndex; i < array.length; i++) {
-            if (array[i] > biggestElement) {
-                biggestElement = array[i];
-                indexOfBiggestElement = i;
-            }
-        }
-        return indexOfBiggestElement;
     }
 }
