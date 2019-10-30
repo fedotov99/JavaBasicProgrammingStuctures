@@ -9,7 +9,11 @@ public class FactorialCalculation {
         return result;
     }
 
-//    public static int getRecursionFactorial(int n) {
-//
-//    }
+    public static int getRecursionFactorial(int n) {
+        if (n == 1)
+            return 1;
+        else {
+            return n * getLoopFactorial(n - 1);
+        }
+    }
 }
