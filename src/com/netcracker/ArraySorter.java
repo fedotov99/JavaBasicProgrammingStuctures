@@ -4,20 +4,6 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class ArraySorter {
-    public static void getRandomArray(int[] array, int min, int max) {
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (int)(Math.random() * ((max - min) + 1)) + min;
-        }
-    }
-
-    public static int[] getRandomArray(int size, int min, int max) {
-        int[] array = new int[size];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (int)(Math.random() * ((max - min) + 1)) + min;
-        }
-        return array;
-    }
-
     public static void bubbleSort(int[] array, SortType sortType) {
         boolean isSorted = false;
         int lastUnsorted = array.length - 1;
@@ -107,11 +93,5 @@ public class ArraySorter {
             }
         }
         return indexOfBiggestElement;
-    }
-
-    public static void printArray(int[] array) {
-        System.out.println();
-        Arrays.stream(array).forEach(a-> System.out.print(a + " "));
-        System.out.println();
     }
 }
