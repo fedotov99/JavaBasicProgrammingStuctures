@@ -11,6 +11,6 @@ public class TimeEstimator {
         long startTime = System.nanoTime();
         function.sortArray(array, sortType);
         long estimatedTime = System.nanoTime() - startTime;
-        System.out.println("The estimated time of " + functionName + " is " + estimatedTime);
+        System.out.println("The estimated time of " + functionName + " is " + estimatedTime + "ms");
     }
 }
