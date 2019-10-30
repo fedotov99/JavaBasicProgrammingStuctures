@@ -6,6 +6,7 @@ public class Main {
     final static int N = 100;
 
     public static void main(String[] args) {
+
 //        ===============ArraySorter sample===============
 
         int[] array = new int[N];
@@ -21,10 +22,18 @@ public class Main {
         TimeEstimator.estimateSortingTime(ArraySorter::callStandardSortMethod, array, SortType.ASCENDING, "callStandardSortMethod(array, SortType.ASCENDING)");
 //        ArraySorter.printArray(array);
 
+
+
 //        ===============FactorialCalculation sample===============
         int n = 5;
         TimeEstimator.estimateFactorialTime(FactorialCalculation::getLoopFactorial, n, "getLoopFactorial(n)");
         TimeEstimator.estimateFactorialTime(FactorialCalculation::getRecursionFactorial, n, "getRecursionFactorial(n)");
 
+
+
+//        ===============SharpDrawer sample===============
+        SharpDrawer.drawRectangle(4, 5);
+        SharpDrawer.drawEmptyRectangle(4, 5);
+        SharpDrawer.drawTriangle(8);
     }
 }
