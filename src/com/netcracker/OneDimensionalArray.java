@@ -102,6 +102,10 @@ public class OneDimensionalArray {
         return indexOfMaxElement;
     }
 
+    public static double getAverage(int[] array) {
+        return Arrays.stream(array).average().getAsDouble();
+    }
+
     public static void printArray(int[] array) {
         System.out.println();
         Arrays.stream(array).forEach(a-> System.out.print(a + " "));
