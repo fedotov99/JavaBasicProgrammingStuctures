@@ -106,6 +106,18 @@ public class OneDimensionalArray {
         return Arrays.stream(array).average().getAsDouble();
     }
 
+    public static void compareAveragesOfTwoArrays (double average1, double average2) {
+        if (average1 > average2) {
+            System.out.println("Average of first array > average of second array");
+        }
+        else if (average1 < average2) {
+            System.out.println("Average of first array < average of second array");
+        }
+        else {
+            System.out.println("Average of first array = average of second array");
+        }
+    }
+
     public static void printArray(int[] array) {
         System.out.println();
         Arrays.stream(array).forEach(a-> System.out.print(a + " "));
