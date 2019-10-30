@@ -89,6 +89,19 @@ public class OneDimensionalArray {
         return indexOfMinElement;
     }
 
+    public static int getLastMaxElementIndex(int[] array) {
+        int maxElement = array[0];
+        int indexOfMaxElement = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] <= maxElement) {
+                maxElement = array[i];
+                indexOfMaxElement = i;
+            }
+        }
+        return indexOfMaxElement;
+    }
+
     public static void printArray(int[] array) {
         System.out.println();
         Arrays.stream(array).forEach(a-> System.out.print(a + " "));
