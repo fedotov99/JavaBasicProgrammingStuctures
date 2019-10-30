@@ -1,6 +1,7 @@
 package com.netcracker;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class ArraySorter {
     public static void getRandomArray(int[] array, int high) {
@@ -57,7 +58,15 @@ public class ArraySorter {
     }
 
     public static void callStandardSortMethod(int[] array, SortType sortType) {
-        Arrays.sort(array);
+        if (sortType == SortType.ASCENDING)
+            Arrays.sort(array);
+        else if (sortType == SortType.DESCENDING) {
+            Integer[] newArray = Arrays.stream(array).boxed().toArray(Integer[]::new);
+            Arrays.sort(newArray, Collections.reverseOrder());
+            for (int i = 0; i < array.length; i++) {
+                array[i] = newArray[i];
+            }
+        }
     }
 
     private static void swapElements(int[] array, int i, int j) {
