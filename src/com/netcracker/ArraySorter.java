@@ -3,6 +3,11 @@ package com.netcracker;
 import java.util.Arrays;
 
 public class ArraySorter {
+    public static void getRandomArray(int[] array, int high) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int)(Math.random() * high);
+        }
+    }
 
     public static void BubbleSort(int[] array, SortType sortType) {
         boolean isSorted = false;
@@ -38,6 +43,8 @@ public class ArraySorter {
     }
 
     public static void printArray(int[] array) {
+        System.out.println();
         Arrays.stream(array).forEach(a-> System.out.print(a + " "));
+        System.out.println();
     }
 }
