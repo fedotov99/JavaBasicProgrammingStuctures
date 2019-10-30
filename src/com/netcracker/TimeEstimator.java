@@ -3,13 +3,24 @@ package com.netcracker;
 import java.util.concurrent.Callable;
 
 public class TimeEstimator {
-    public interface PassedFunction {
+    public interface PassedSortingFunction {
         public void sortArray(int[] array, SortType sortType);
     }
 
-    public void estimateSortingTime(PassedFunction function, int[] array, SortType sortType, String functionName) {
+    public interface PassedFactorialFunction {
+        public void getFactorial(int n);
+    }
+
+    public void estimateSortingTime(PassedSortingFunction function, int[] array, SortType sortType, String functionName) {
         long startTime = System.nanoTime();
         function.sortArray(array, sortType);
+        long estimatedTime = System.nanoTime() - startTime;
+        System.out.println("The estimated time of " + functionName + " is " + estimatedTime + "ms");
+    }
+
+    public void estimateFactorialTime(PassedFactorialFunction function, int n, String functionName) {
+        long startTime = System.nanoTime();
+        function.getFactorial(n);
         long estimatedTime = System.nanoTime() - startTime;
         System.out.println("The estimated time of " + functionName + " is " + estimatedTime + "ms");
     }
