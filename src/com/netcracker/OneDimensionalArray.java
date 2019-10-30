@@ -38,6 +38,10 @@ public class OneDimensionalArray {
         return Arrays.stream(array).filter(i -> i % 2 == 0).count();
     }
 
+    public static long countOddNumber(int[] array) {
+        return Arrays.stream(array).filter(i -> i % 2 != 0).count();
+    }
+
     public static void printArray(int[] array) {
         System.out.println();
         Arrays.stream(array).forEach(a-> System.out.print(a + " "));
