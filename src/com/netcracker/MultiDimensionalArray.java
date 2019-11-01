@@ -31,6 +31,26 @@ public class MultiDimensionalArray {
         }
     }
 
+    public static int getMultiplicationOfMainDiagonal(int[][] array){
+        try {
+            if (array.length != array[0].length) {
+                throw new Exception("Rows count must be equal to cols count!");
+            }
+
+            int multiplication = 1;
+
+            for (int i = 0; i < array.length; i++) {
+                multiplication *= array[i][i];
+            }
+
+            return multiplication;
+        }
+        catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            return -1;
+        }
+    }
+
     public static void printMultiArray(int[][] array) {
         System.out.println();
         System.out.println(Arrays.deepToString(array));
