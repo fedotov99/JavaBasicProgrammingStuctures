@@ -1,6 +1,9 @@
 package com.netcracker;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class OneDimensionalArray {
     public static void getRandomArray(int[] array, int min, int max) {
@@ -116,6 +119,24 @@ public class OneDimensionalArray {
         else {
             System.out.println("Average of first array = average of second array");
         }
+    }
+
+    public static Map<Integer, Integer> getTheMostFrequentElements(int[] array) {
+        Map<Integer, Integer> counter = new LinkedHashMap<Integer, Integer>(); // key - element of array, value - count of element. store the count of each key
+        for (int i = 0; i < array.length; i++) {
+            if (counter.get(array[i]) != null)
+                counter.put(array[i], counter.get(array[i]) + 1);
+            else {
+                counter.put(array[i], 1);
+            }
+        }
+        Map<Integer, Integer> resultCounter;
+        // find max value of count
+        int maxCount = counter.entrySet().stream().max((i, j)-> i.getValue() > j.getValue() ? 1 : -1).get().getValue();
+        // looking for elements with the same max value of count
+        resultCounter = counter.entrySet().stream().filter((i) -> i.getValue() == maxCount).collect(Collectors.toMap(k->k.getKey(), v->v.getValue()));
+
+        return resultCounter;
     }
 
     public static void printArray(int[] array) {
