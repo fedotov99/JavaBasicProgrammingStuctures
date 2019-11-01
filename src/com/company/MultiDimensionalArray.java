@@ -31,6 +31,26 @@ public class MultiDimensionalArray {
         }
     }
 
+    public static int getSumOfSecondaryDiagonal(int[][] array){
+        try {
+            if (array.length != array[0].length) {
+                throw new Exception("Rows count must be equal to cols count!");
+            }
+
+            int sum = 0;
+
+            for (int i = array.length - 1, j = 0; i >= 0; i--, j++) {
+                sum += array[i][j];
+            }
+
+            return sum;
+        }
+        catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            return -1;
+        }
+    }
+
     public static int getMultiplicationOfMainDiagonal(int[][] array){
         try {
             if (array.length != array[0].length) {
@@ -41,6 +61,26 @@ public class MultiDimensionalArray {
 
             for (int i = 0; i < array.length; i++) {
                 multiplication *= array[i][i];
+            }
+
+            return multiplication;
+        }
+        catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            return -1;
+        }
+    }
+
+    public static int getMultiplicationOfSecondaryDiagonal(int[][] array){
+        try {
+            if (array.length != array[0].length) {
+                throw new Exception("Rows count must be equal to cols count!");
+            }
+
+            int multiplication = 1;
+
+            for (int i = array.length - 1, j = 0; i >= 0; i--, j++) {
+                multiplication *= array[i][j];
             }
 
             return multiplication;
