@@ -40,7 +40,7 @@ public class Main {
 
 
 //        ===============OneDimensionalArray sample===============
-        int[] oddNumberArray = OneDimensionalArray.getOddNumberArray(SortType.DESCENDING); // or ASCENDING
+        int[] oddNumberArray = OneDimensionalArray.getOddNumberArray(50, SortType.DESCENDING); // or ASCENDING
         OneDimensionalArray.printArray(oddNumberArray);
 
         int[] random20IntArray = OneDimensionalArray.getRandomArray(20, 0, 10);

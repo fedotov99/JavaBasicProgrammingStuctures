@@ -20,8 +20,8 @@ public class OneDimensionalArray {
         return array;
     }
 
-    public static int[] getOddNumberArray(SortType sortType) {
-        int[] array = new int[50];
+    public static int[] getOddNumberArray(int size, SortType sortType) {
+        int[] array = new int[size];
         int oddNumber = 1;
         for (int i = 0; i < array.length; i++) {
             array[i] = oddNumber;
