@@ -1,4 +1,4 @@
-package com.netcracker;
+package com.company;
 
 public enum SortType {
     ASCENDING,

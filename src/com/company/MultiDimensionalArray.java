@@ -1,4 +1,4 @@
-package com.netcracker;
+package com.company;
 
 import java.util.Arrays;
 

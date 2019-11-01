@@ -1,6 +1,4 @@
-package com.netcracker;
-
-import java.util.concurrent.Callable;
+package com.company;
 
 public class TimeEstimator {
     public interface PassedSortingFunction {

@@ -1,4 +1,4 @@
-package com.netcracker;
+package com.company;
 
 public class SharpDrawer {
     public static void drawRectangle(int row, int col) {

@@ -1,4 +1,4 @@
-package com.netcracker;
+package com.company;
 
 public class FactorialCalculation {
     public static int getLoopFactorial(int n) {

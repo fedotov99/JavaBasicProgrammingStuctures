@@ -1,11 +1,7 @@
-package com.netcracker;
+package com.company;
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.OptionalDouble;
 
 public class Main {
     final static int N = 100;
@@ -33,7 +29,6 @@ public class Main {
         int n = 5;
         TimeEstimator.estimateFactorialTime(FactorialCalculation::getLoopFactorial, n, "getLoopFactorial(n)");
         TimeEstimator.estimateFactorialTime(FactorialCalculation::getRecursionFactorial, n, "getRecursionFactorial(n)");
-
 
 
 //        ===============SharpDrawer sample===============
@@ -80,5 +75,12 @@ public class Main {
         counts = OneDimensionalArray.getTheMostFrequentElements(yetAnotherRandom20IntArray);
         counts.forEach((k, v)-> System.out.println("The count of number " + k + " is " + v));
 
+
+
+//        ===============MultiDimensionalArray sample===============
+        int[][] multiArray = MultiDimensionalArray.getRandomMultiArray(3, 3, 1, 99);
+        MultiDimensionalArray.printMultiArray(multiArray);
+        System.out.println("Sum of main diagonal is " + MultiDimensionalArray.getSumOfMainDiagonal(multiArray));
+        System.out.println("Multiplication of main diagonal is " + MultiDimensionalArray.getMultiplicationOfMainDiagonal(multiArray));
     }
 }
