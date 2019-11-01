@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 
 public class MultiDimensionalArray {
     public static int[][] getRandomMultiArray(int rows, int cols, int min, int max) {
@@ -89,6 +90,32 @@ public class MultiDimensionalArray {
             System.out.println(exception.getMessage());
             return -1;
         }
+    }
+
+    public static LinkedList<IndexesOfMaxElementsInMultiArrays> getIndexesOfMaxElementInMultiArray(int[][] array) {
+        int maxInAllRows = array[0][0];
+        int maxInParticularRow;
+
+        for (int i = 0; i < array.length; i++) {
+            maxInParticularRow = Arrays.stream(array[i]).max().getAsInt();
+            if (maxInParticularRow > maxInAllRows) {
+                maxInAllRows = maxInParticularRow;
+            }
+        }
+
+        LinkedList<IndexesOfMaxElementsInMultiArrays> indexesOfMaxElementList = new LinkedList<>();
+
+        // find all indexes where elements are equal to maxInAllRows element
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] == maxInAllRows) {
+                    IndexesOfMaxElementsInMultiArrays indexes = new IndexesOfMaxElementsInMultiArrays(i, j);
+                    indexesOfMaxElementList.add(indexes);
+                }
+            }
+        }
+
+        return indexesOfMaxElementList;
     }
 
     public static void printMultiArray(int[][] array) {
