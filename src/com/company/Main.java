@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 public class Main {
@@ -82,5 +83,22 @@ public class Main {
         MultiDimensionalArray.printMultiArray(multiArray);
         System.out.println("Sum of main diagonal is " + MultiDimensionalArray.getSumOfMainDiagonal(multiArray));
         System.out.println("Multiplication of main diagonal is " + MultiDimensionalArray.getMultiplicationOfMainDiagonal(multiArray));
+        System.out.println("Sum of secondary diagonal is " + MultiDimensionalArray.getSumOfSecondaryDiagonal(multiArray));
+        System.out.println("Multiplication of secondary diagonal is " + MultiDimensionalArray.getMultiplicationOfSecondaryDiagonal(multiArray));
+
+        int[][] arrayForMax = MultiDimensionalArray.getRandomMultiArray(8, 5, -99, 99);
+        MultiDimensionalArray.printMultiArray(arrayForMax);
+        LinkedList<IndexesOfMultiArray> indexesOfMaxElementList = MultiDimensionalArray.getIndexesOfMaxElementInMultiArray(arrayForMax);
+        System.out.println("Indexes of max elements, which is " + arrayForMax[indexesOfMaxElementList.getFirst().getRowIndex()][indexesOfMaxElementList.getFirst().getColIndex()] + ":");
+        indexesOfMaxElementList.stream().forEach(i-> System.out.println(i.toString()));
+
+        int[][] arrayForMaxAbsMult = MultiDimensionalArray.getRandomMultiArray(8, 5, -10, 10);
+        MultiDimensionalArray.printMultiArray(arrayForMaxAbsMult);
+        System.out.println("Index of row with max absolute multiplication of elements: " + MultiDimensionalArray.getIndexOfRowWithMaxAbsMultiplicationOfElements(arrayForMaxAbsMult));
+
+        int[][] multiArrayForSorting = MultiDimensionalArray.getRandomMultiArray(10, 7, 0, 100);
+        MultiDimensionalArray.printMultiArray(multiArrayForSorting);
+        MultiDimensionalArray.sortAllRows(multiArrayForSorting, SortType.DESCENDING);
+        MultiDimensionalArray.printMultiArray(multiArrayForSorting);
     }
 }
