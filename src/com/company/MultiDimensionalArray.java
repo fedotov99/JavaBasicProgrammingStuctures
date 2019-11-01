@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 
@@ -137,6 +138,19 @@ public class MultiDimensionalArray {
         }
 
         return indexOfRowWithMaxAbsMultiplicationOfElements;
+    }
+
+    public static void sortAllRows(int[][] array, SortType sortType) {
+        if (sortType == SortType.ASCENDING) {
+            for (int i = 0; i < array.length; i++) {
+                ArraySorter.selectionSort(array[i], SortType.ASCENDING);
+            }
+        }
+        else if (sortType == SortType.DESCENDING) {
+            for (int i = 0; i < array.length; i++) {
+                ArraySorter.selectionSort(array[i], SortType.DESCENDING);
+            }
+        }
     }
 
     public static void printMultiArray(int[][] array) {
