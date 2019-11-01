@@ -92,7 +92,7 @@ public class MultiDimensionalArray {
         }
     }
 
-    public static LinkedList<IndexesOfMaxElementsInMultiArrays> getIndexesOfMaxElementInMultiArray(int[][] array) {
+    public static LinkedList<IndexesOfMultiArray> getIndexesOfMaxElementInMultiArray(int[][] array) {
         int maxInAllRows = array[0][0];
         int maxInParticularRow;
 
@@ -103,19 +103,40 @@ public class MultiDimensionalArray {
             }
         }
 
-        LinkedList<IndexesOfMaxElementsInMultiArrays> indexesOfMaxElementList = new LinkedList<>();
+        LinkedList<IndexesOfMultiArray> indexesOfMaxElementList = new LinkedList<>();
 
         // find all indexes where elements are equal to maxInAllRows element
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] == maxInAllRows) {
-                    IndexesOfMaxElementsInMultiArrays indexes = new IndexesOfMaxElementsInMultiArrays(i, j);
+                    IndexesOfMultiArray indexes = new IndexesOfMultiArray(i, j);
                     indexesOfMaxElementList.add(indexes);
                 }
             }
         }
 
         return indexesOfMaxElementList;
+    }
+
+    public static int getIndexOfRowWithMaxAbsMultiplicationOfElements(int[][] array) {
+        int maxMultiplication = array[0][0];
+        int indexOfRowWithMaxAbsMultiplicationOfElements = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            int multiplicationInRow = 1;
+            for (int j = 0; j < array[i].length; j++) {
+                multiplicationInRow *= array[i][j];
+            }
+
+            multiplicationInRow = Math.abs(multiplicationInRow);
+
+            if (multiplicationInRow > maxMultiplication) {
+                maxMultiplication = multiplicationInRow;
+                indexOfRowWithMaxAbsMultiplicationOfElements = i;
+            }
+        }
+
+        return indexOfRowWithMaxAbsMultiplicationOfElements;
     }
 
     public static void printMultiArray(int[][] array) {
