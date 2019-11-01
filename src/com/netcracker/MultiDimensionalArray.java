@@ -11,6 +11,26 @@ public class MultiDimensionalArray {
         return array;
     }
 
+    public static int getSumOfMainDiagonal(int[][] array){
+        try {
+            if (array.length != array[0].length) {
+                throw new Exception("Rows count must be equal to cols count!");
+            }
+
+            int sum = 0;
+
+            for (int i = 0; i < array.length; i++) {
+                sum += array[i][i];
+            }
+
+            return sum;
+        }
+        catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            return -1;
+        }
+    }
+
     public static void printMultiArray(int[][] array) {
         System.out.println();
         System.out.println(Arrays.deepToString(array));
